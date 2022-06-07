@@ -31,7 +31,11 @@ Item item4=new Item("mocha",6.50);
         // Menu items
         ArrayList<Item> menuItems = new ArrayList<>();
         // Order variables -- order1, order2 etc. are the names of the orders in the array list
-
+        // Add items to the menu
+        menuItems.add(item1);
+        menuItems.add(item2);
+        menuItems.add(item3);
+        menuItems.add(item4);
         // Application Simulations
 
         // Use this example code to test various orders' updates
