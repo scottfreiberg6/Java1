@@ -15,16 +15,17 @@ public class Bank_account {
         this.savings_balance = savings_balance;
         this.transactions = new ArrayList<String>();
         NumberofAccounts++;
-        TotalOfBalances += checking_balance + savings_balance;
 
     }
     // METHODS
     public void deposit(double amount , String account) {
         if(account.equals("checking")){
             checking_balance+=amount;
+            TotalOfBalances+=amount;
         }
         else if(account.equals("savings")){
             savings_balance+=amount;
+            TotalOfBalances+=amount;
         }
         else System.out.println("Specify account");
     }
@@ -33,13 +34,16 @@ public class Bank_account {
             if(amount>checking_balance){
             System.out.println("In sufficent funds");
             }
-            else checking_balance-=amount;
+            else{ checking_balance-=amount;
+                TotalOfBalances-=amount;
+            }
         }
         else if(account.equals("savings")){
             if(amount>savings_balance){
             System.out.println("insufficent funds");
             }
-           else savings_balance-=amount;
+           else{ savings_balance-=amount;
+            TotalOfBalances-=amount;}
         }
         else System.out.println("Specify account");
 }
@@ -55,6 +59,9 @@ public class Bank_account {
     public void printSavingsBalance(){
         System.out.println("Balance for "+ this.name + "is"+ this.savings_balance);
     }
+    public void printTotalBalance(){
+        System.out.println("Total balance for "+ this.name + "is"+ (this.checking_balance+this.savings_balance));
+    }
     // STATIC MEMBER VARIABLES
     private static int NumberofAccounts = 0;
     public static int getNumberofAccounts() {
@@ -64,12 +71,11 @@ public class Bank_account {
     public static int getTotalOfBalances() {
         return TotalOfBalances;
     }
-
     //Setters and Getters
     public double getCheckingBalance() {
         return checking_balance;
     }
-    public Double getSavingsBalance(){
+    public double getSavingsBalance(){
         return savings_balance;
 
     }
