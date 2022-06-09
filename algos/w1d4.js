@@ -21,7 +21,6 @@ class List
 
     PushBack(value)
     {
-        /* Your Code Here */
         if(!this.head)
         {
             this.head=new Node(value);
@@ -33,56 +32,61 @@ class List
 
     PushBackN(arr)
     {
-        /* Your Code Here */
         for(let value of arr) this.PushBack(value);
     }
 
-    /* Determines whether the given value was found within the list */
-    /* ( Returns a bool, true or false ) */
-
-    /* value=40 */
-    
-    Contains(value)
+    SecondToLast()
     {
         /* Your Code Here */
         let node=this.head;
+        while(node.next.next)
+        {
+            node=node.next;
+        }
+        return node.value;
+    }
+
+    RemoveValue(value) /* 3 */
+    {
+        /* Your Code Here */
+        let node=this.head;
+        let prev=null;
         while(node)
         {
             if(node.value==value)
             {
-                return true;
+                prev.next=prev.next.next;
+                node.next=undefined;
+                return;
             }
+            prev=node;
             node=node.next;
         }
-        return false;
     }
 
-    /* Recursively determines whether the given value was found within the list. */
-    /* ( Returns a bool, true or false ) */
-
-    /* node=10,20,30 */
-    /* value=30 */
-    ContainsRecursive(node,value)
-    {
-        /* Your Code Here */
-        /* Call Me Recursively! */
-        if(!node) return false;
-        if(node.value==value) return true;
-        return this.ContainsRecursive(node.next,value);
-    }
-
-    /* Removes and returns the last value in the list. */
-    /* Treat me like array.pop() would */
-    PopBack()
+    Prepend(new_value,search_value)
     {
         /* Your Code Here */
         let node=this.head;
-        while(node.next)
+        let prev=undefined;
+        while(node)
         {
+            if(node.value==search_value)
+            {
+                let old_list=node;
+                prev.next=new Node(new_value);
+                prev.next.next=old_list;
+            }
+            prev=node;
             node=node.next;
         }
-        let value=node.value;
-        node.next=undefined;
-        return value;
     }
 };
+
+let list=new List();
+
+list.PushBackN([111,222,333,444,555,666]);
+
+list.Prepend(333,444);
+
+list.Iterate(value=>console.log(value));

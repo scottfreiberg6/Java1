@@ -34,5 +34,6 @@ Orders order4=new Orders();
 order4.setName("Noah");
 order4.addItem(item3);
 total=order4.getTotal();
+System.out.println(total);
     }
 }

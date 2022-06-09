@@ -1,9 +1,11 @@
+package Barrista_challenge;
+
 import java.util.jar.Attributes.Name;
 
-public class Item {
+public class Items {
     private String name;
     private double price;
-    private Item(String name, double price) {
+    Items(String name, double price) {
         this.name = name;
         this.price = price;
     }
