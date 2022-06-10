@@ -32,8 +32,24 @@ public class HomeController
 	public String Tomorrow() {
 		return"Tomorrow, an opportunity will arise, so be sure to be open to new ideas!";
 	}
+	@GetMapping("/daikichi/{id}")
+	public String daikichi(@PathVariable("id") int id)
+	{
+		if(id%2==0)
+		{
+			return "You will take a grand journey in the near future, but be weary of tempting offers";
+		}
+		else
+		{
+			return "You have enjoyed the fruits of your labor but now is a great time to spend time with family and friends.";
+		}
 	}
-	
+	@GetMapping ("daikichi/travel/{city}")
+	public String findCity
+	(@PathVariable String city) {
+	return "<h1>Congratulations! You will soon travel to "+city+"</h1>";
+	}
+}
 	
 
 
