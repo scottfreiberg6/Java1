@@ -13,7 +13,7 @@ public class Physician  extends User implements HIPAACompliantUser    {
 	}
 
 	@Override
-	public boolean accessAuthorized(Integer confirmedAuthID) {
+	public Integer accessAuthorized(Integer confirmedAuthID) {
 		return confirmedAuthID=pin;
 	}
 	
