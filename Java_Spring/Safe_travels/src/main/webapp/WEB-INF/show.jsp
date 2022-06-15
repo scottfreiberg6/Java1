@@ -13,12 +13,9 @@
 	<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
-	<h1>I'm a Template</h1>
-	<p>${number}</p>
-	<p>${city}</p>
-	<p>${person}</p>
-	<p>${hobyy}</p>
-	<p>${living_thing}</p>
-	<p>${nice}</p>
+	<h1>Title: ${expense.title}</h1>
+	<p>Vendor: ${expense.vendor}</p>
+	<p>Amount: $${expense.amount}</p>
+	<p>Description: ${expense.description}</p>
 </body>
 </html>
