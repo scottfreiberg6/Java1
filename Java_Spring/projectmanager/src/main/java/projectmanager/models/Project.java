@@ -24,15 +24,19 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Project {
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
+
 private Long id;
 @Size(min=1, max=255, message="Title must be provided")
+
 private String title;
 @Size(min=3, max=255, message="Description must be at least 3 characters")
+
 private String description;
 @NotNull(message="Due Date Must beProvided")
 @DateTimeFormat(pattern="yyyy-MM-dd")
+
+//@NotEmpty(message="Due Date must be provided")
 private Date due_date;
-@NotEmpty(message="Due Date must be provided")
 @ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="owner_id")
 private User owner;
@@ -45,8 +49,8 @@ private User owner;
 		inverseJoinColumns=@JoinColumn(name="user_id")
 		)
 private List<User> users;
-@OneToMany(mappedBy="project",fetch=FetchType.LAZY)
-private List<Task> tasks;
+//@OneToMany(mappedBy="project",fetch=FetchType.LAZY)
+//private List<Task> tasks;
 public User getOwner() {
 	return owner;
 }
@@ -63,13 +67,13 @@ public void setUsers(List<User> users) {
 	this.users = users;
 }
 
-public List<Task> getTasks() {
-	return tasks;
-}
+//public List<Task> getTasks() {
+//	return tasks;
+//}
 
-public void setTasks(List<Task> tasks) {
-	this.tasks = tasks;
-}
+//public void setTasks(List<Task> tasks) {
+//	this.tasks = tasks;
+//}
 
 public Long getId() {
 	return id;

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import projectmanager.models.TempUser;
 import projectmanager.models.User;
+import projectmanager.services.ProjectService;
 import projectmanager.services.UserService;
 
 @Controller
@@ -20,8 +21,10 @@ public class RootController
 {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private ProjectService projectService;
 	
-	@GetMapping("")
+	@GetMapping("/")
 	public String login_register( Model model )
 	{
 		model.addAttribute("userRegister",new User());
@@ -53,9 +56,10 @@ public class RootController
 	
 	
 	@GetMapping("/dashboard")
-	public String dashboard(HttpSession session)
+	public String dashboard(HttpSession session, Model model)
 	{
 		if(session.getAttribute("user")==null) return "redirect:/";
+		model.addAttribute("project",projectService.findAll());
 		return "dashboard";
 	}
 	

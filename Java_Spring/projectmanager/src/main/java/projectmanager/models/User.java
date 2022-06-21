@@ -56,11 +56,21 @@ public class User
     		)
     private List<Project> project;
     
-    @OneToMany(mappedBy="user", fetch=FetchType.LAZY)
-    private List<Task> tasks;
+//    @OneToMany(mappedBy="taskowner", fetch=FetchType.LAZY)
+//    private List<Task> tasks;
+    @OneToMany(mappedBy="owner", fetch=FetchType.LAZY)
+    private List<Project> projects;
 	
 	public Long getId() {
 		return id;
+	}
+
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
 	}
 
 	public List<Project> getProject() {
@@ -71,13 +81,13 @@ public class User
 		this.project = project;
 	}
 
-	public List<Task> getTasks() {
-		return tasks;
-	}
-
-	public void setTasks(List<Task> tasks) {
-		this.tasks = tasks;
-	}
+//	public List<Task> getTasks() {
+//		return tasks;
+//	}
+//
+//	public void setTasks(List<Task> tasks) {
+//		this.tasks = tasks;
+//	}
 
 	public void setId(Long id) {
 		this.id = id;

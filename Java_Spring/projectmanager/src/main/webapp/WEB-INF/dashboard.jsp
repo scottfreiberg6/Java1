@@ -16,5 +16,30 @@
 	<a href="/logout">Logout</a>
 
 	<h1>Welcome, ${user.name} ${user.email}</h1>
+	<h1>Hi, I'm a template</h1>
+		<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>Lead</th>
+<th>DueDate</th>
+</tr>
+</thead>
+<tbody>
+<c:forEach var="project" items="${project}">
+<tr>
+<td> <a href="/books/show/${project.id}">${project.title}</a></td>
+<td>${project.title}</td>
+<td>${user.name}</td>
+<td>${project.due_date}</td>
+<td>
+<a href="/project/edit/${project.id}">Edit</a>
+<form class="flex gap2" action="/project/delete/${project.id}" method="POST">
+<input type="submit" value="Delete" />
+</form>
+</td>
+</tr>
+</c:forEach>
+	
 </body>
 </html>

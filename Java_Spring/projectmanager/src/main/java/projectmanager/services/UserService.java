@@ -1,5 +1,7 @@
 package projectmanager.services;
 
+import java.util.Optional;
+
 import javax.servlet.http.HttpSession;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -53,6 +55,11 @@ public class UserService
 		userRepository.save(user);
 		return user;
 	}
+	public User FindById(Long id)
+	{
+		Optional<User>user=userRepository.findById(id);
+		return user.isPresent()?user.get():null;
+		}
 	
 	public void logout(HttpSession session)
 	{

@@ -14,9 +14,9 @@
 </head>
 <body>
 	<a href="/logout">Logout</a>
-
+<p>${owner.id}</p>
 	<h1>Welcome, I am a template</h1>
-	<form action="/projects" method="POST" modelAttribute="project">
+	<form:form action="/projects" method="POST" modelAttribute="project">
 	<h1>Create a Project</h1>
 	<form:errors class="col_red" path="title"></form:errors>
 	<form:input path="title" placeholder="title"/>
@@ -24,8 +24,9 @@
 	<form:textarea path="description" placeholder="description"/>
 	<form:errors class="col_red" path="due_date"></form:errors>
 	<form:input type="date" path="due_date"></form:input>
+<form:hidden path="owner" value="${owner.id}"></form:hidden>
 	
-	<input type="submite" value="Submit Project">
-	</form>
+	<input type="submit" value="Submit Project">
+	</form:form>
 </body>
 </html>
