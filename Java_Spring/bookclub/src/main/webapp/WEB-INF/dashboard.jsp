@@ -14,8 +14,10 @@
 </head>
 <body>
 	<a href="/logout">Logout</a>
+	<a href="/books/book">Add Book to MyShelf</a>
 	<h1>Welcome, ${user.name} ${user.email}</h1>
 	<h2>Hi, I'm a Template</h2>
+	
 	
 	
 	<table>
@@ -25,16 +27,16 @@
 <th>Title</th>
 <th>Author</th>
 <th>Posted By</th>
+<th>Actions</th>
 </tr>
 </thead>
 <tbody>
 <c:forEach var="book" items="${book}">
 <tr>
-<td> <a href="/books/show/${book.id}">${book.title}</a></td>
 <td>${book.id}</td>
-<td>${book.title}</td>
+<td> <a href="/books/show/${book.id}">${book.title}</a></td>
 <td>${book.author}</td>
-<td>${user.name}</td>
+<td>${book.user.name}</td>
 <td>
 <a href="/books/edit/${book.id}">Edit</a>
 <form class="flex gap2" action="/books/delete/${book.id}" method="POST">

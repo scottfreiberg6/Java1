@@ -51,6 +51,7 @@ public class RootController
 			model.addAttribute("userLogin",new TempUser());	
 			return "login_register";
 		}
+		
 		return "redirect:/";
 	}
 	
@@ -79,6 +80,11 @@ public class RootController
 		}
 		User db_user=userService.login(tempUser,res);
 		if(db_user==null)
+		{
+			model.addAttribute("userRegister",new User());
+			return "login_register";
+		}
+		if(res.hasErrors())
 		{
 			model.addAttribute("userRegister",new User());
 			return "login_register";

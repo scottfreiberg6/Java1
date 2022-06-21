@@ -14,6 +14,7 @@
 </head>
 <body>
 	<h1>Hi, I'm a Template</h1>
+	<p>${postedBy.id}</p>
 		<form:form class="grid" action="/books/create" method="POST" modelAttribute="book">
 		
 		<form:errors class="col_red" path="title"></form:errors>
