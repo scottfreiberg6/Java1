@@ -15,7 +15,7 @@
 <body>
 	<a href="/logout">Logout</a>
 	<a href="/books/book">Add Book to MyShelf</a>
-	<h1>Welcome, ${user.name} ${user.email}</h1>
+	<h1>Welcome, ${user.name}, ${user.email}</h1>
 	<h2>Hi, I'm a Template</h2>
 	
 	

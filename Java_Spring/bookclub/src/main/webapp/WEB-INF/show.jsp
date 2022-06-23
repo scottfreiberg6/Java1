@@ -15,8 +15,8 @@
 <body>
 	<h1>Hi, I'm a Template</h1>
 		<h2>Title: ${book.title}</h2>
-		<p>${user.name} read ${book.title} by ${book.author}</p>
-		<p>Here are ${user.name} thoughts</p>
+		<p>${book.user.name} read ${book.title} by ${book.author}</p>
+		<p>Here are ${book.user.name} thoughts</p>
 		<p>${book.myThoughts}</p>
 </body>
 </html>
